@@ -12,6 +12,20 @@ It provides basis functionalities such as the Oauth authentification, the search
 It can also serve as a basis for the development of libraries with more advanced functionalities.
 
 
+Setup
+------
+
+If you have pip available, installing is as simple as::
+
+    pip install music_story
+
+Otherwise you can extract the source code and to:
+
+    python setup.py install
+
+You'll need internet for the installer to download the dependancies.
+
+
 Authentication
 --------------
 
