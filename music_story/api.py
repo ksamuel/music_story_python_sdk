@@ -25,6 +25,7 @@ class MusicStoryApi(object):
     }
 
     DEFAULT_LANG = 'en'
+    SIGNATURE_TYPE='query'
     BASE_URL = 'http://api.music-story.com'
 
 
@@ -57,7 +58,8 @@ class MusicStoryApi(object):
         """
         if not self.token or self.token_secret:
             session = MusicStoryOAuth(self.consummer_key,
-                                      client_secret=self.consummer_secret)
+                                      client_secret=self.consummer_secret,
+                                      signature_type=self.SIGNATURE_TYPE)
             response = session.fetch_request_token(self.url('fetch_token'))
 
             self.token = response["oauth_token"]
@@ -66,7 +68,8 @@ class MusicStoryApi(object):
         self.session = MusicStoryOAuth(self.consummer_key,
                                        client_secret=self.consummer_secret,
                                        resource_owner_key=self.token,
-                                       resource_owner_secret=self.token_secret)
+                                       resource_owner_secret=self.token_secret,
+                                       signature_type=self.SIGNATURE_TYPE)
 
         return self
 
