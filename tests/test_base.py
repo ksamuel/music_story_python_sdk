@@ -40,7 +40,7 @@ def test_editorial_fields(api):
     assert artist.country == 'England'
 
     artist = api.get("artist", id=1, editorial_fields=['country'], lang='fr')
-    assert artist.country == None
+    assert artist.country == 'Angleterre'
 
 
 def test_search(api):
